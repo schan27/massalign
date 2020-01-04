@@ -1,17 +1,13 @@
 from abc import ABCMeta, abstractmethod
 import numpy as np
 
-class ParagraphAligner:
-
-    __metaclass__ = ABCMeta
+class ParagraphAligner(metaclass=ABCMeta):
 
     @abstractmethod
     def alignParagraphsFromDocuments(self):
         pass
 		
-class SentenceAligner:
-
-    __metaclass__ = ABCMeta
+class SentenceAligner(metaclass=ABCMeta):
 
     @abstractmethod
     def alignSentencesFromParagraphs(self):
@@ -138,7 +134,7 @@ class VicinityDrivenParagraphAligner(ParagraphAligner):
 			cands[candXY] = sim
 		
 		#Rank them according to their similarities:
-		winners = sorted(cands.keys(), key=cands.__getitem__, reverse=True)
+		winners = sorted(list(cands.keys()), key=cands.__getitem__, reverse=True)
 
 		#Check whether the first ficinity has a similar enough candidate:
 		nearest = [cands[(currXY[0]+pos[0], currXY[1]+pos[1])] for pos in self.first_vicinity]
@@ -180,7 +176,7 @@ class VicinityDrivenParagraphAligner(ParagraphAligner):
 					
 		#If there are any, get the best one:
 		if len(cands)>0:
-			closest = sorted(cands.keys(), key=cands.__getitem__)
+			closest = sorted(list(cands.keys()), key=cands.__getitem__)
 			return closest[0]
 		#Otherwise, return the last position in the alignment matrix:
 		else:

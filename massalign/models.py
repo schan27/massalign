@@ -3,9 +3,7 @@ import numpy as np
 import gensim
 from massalign.util import FileReader
 
-class SimilarityModel:
-
-	__metaclass__ = ABCMeta
+class SimilarityModel(metaclass=ABCMeta):
 
 	@abstractmethod
 	def getSimilarityMapBetweenParagraphsOfDocuments(self, ps1, ps2):

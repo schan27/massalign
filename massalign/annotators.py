@@ -48,7 +48,7 @@ class SentenceAnnotator:
             * **sent_annots**: A dictionary containing the token-level annotations for both source and reference sentences.
         """
 
-        if isinstance(aligns, str) or isinstance(aligns, unicode):
+        if isinstance(aligns, str) or isinstance(aligns, str):
             aligns = self._formatWordAlignments(aligns)
 
         # token-level delete, add and replace
@@ -104,7 +104,7 @@ class SentenceAnnotator:
         for sents_pair, aligns_pairs in zip(sents_file, aligns_file):
             sent_id += 1
             if verbose:
-                print "Annotating sentence", sent_id, '.'
+                print(("Annotating sentence", sent_id, '.'))
 
             # get the aligned sentences and format them
             src_sent, ref_sent = sents_pair.split('|||')
@@ -473,10 +473,10 @@ class SentenceAnnotator:
         looking = False
         for token_ptr, token in enumerate(src_annots):
                 # determine if the token is at the beginning or inside a 'move' sequence
-                if ('B-' in token['label']) and ('move' not in token.keys()):
+                if ('B-' in token['label']) and ('move' not in list(token.keys())):
                     looking = True  # we need to look for the position to which this sequence need to be moved
                     begin_ptr = token_ptr  # for easier access once we find the information we need
-                elif ('I-' in token['label']) and ('move' in token.keys()) and looking:
+                elif ('I-' in token['label']) and ('move' in list(token.keys())) and looking:
                     looking = False  # we found a token inside the sequence which has the information we need
                     src_annots[begin_ptr]['move'] = token['move'] - (token_ptr - begin_ptr)
 

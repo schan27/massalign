@@ -1,5 +1,5 @@
 import codecs
-from urllib2 import urlopen
+from urllib.request import urlopen
 
 class FileReader:
 	"""
