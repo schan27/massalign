@@ -1,11 +1,13 @@
 # Introduction:
 
-**MASSAlign** is a *Python 2* library for the alignment and annotation of comparable documents.
+**MASSAlign** is a Python **3** library for the alignment and annotation of comparable documents.
 It offers **3** main functionalities:
 
 * Paragraph-level alignment between comparable documents
 * Sentence-level alignment between comparable paragraphs or documents
 * Word-level annotation of modification operations between aligned sentences
+
+**Note:** Since I (Sam Stevens) ported this to Python 3 for use with ArxivEdits, I did not port the visualization functions. As far as I know, the only working feature is the sentence alignment algorithm.
 
 **MASSAlign** uses a technique called *vicinity-driven alignment*, described here:
 
@@ -21,7 +23,7 @@ These papers are evidence:
 
 To install **MASSAlign**, you must:
 
-1. Download and unpack MASSAlign's github [repository](https://github.com/ghpaetzold/massalign/archive/master.zip).
+1. Download and unpack my MASSAlign's github [repository](https://github.com/samuelstevens/massalign).
 2. Navigate to the root folder.
 3. Run the following command line:
 
