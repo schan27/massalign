@@ -104,7 +104,7 @@ class SentenceAnnotator:
         for sents_pair, aligns_pairs in zip(sents_file, aligns_file):
             sent_id += 1
             if verbose:
-                print(("Annotating sentence", sent_id, '.'))
+                print("Annotating sentence", sent_id, '.')
 
             # get the aligned sentences and format them
             src_sent, ref_sent = sents_pair.split('|||')

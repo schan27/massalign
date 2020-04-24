@@ -591,11 +591,13 @@ class VicinityDrivenSentenceAligner(SentenceAligner):
 			* **sentence**: A concatenation of all sentences.
 		"""
 		#Allocate sentence:
-		sentence = ''
+		#sentence = ''
+		sentence = list()
 		
 		#Add aligned sentences to resulting sentence:
 		for index in indexes:
-			sentence += p[index] + ' '
+			#sentence += p[index] + ' '
+			sentence.append(p[index])
 			
 		#Return resulting sentence:
-		return sentence.strip()
+		return sentence #.strip()

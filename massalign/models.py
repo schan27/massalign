@@ -118,7 +118,7 @@ class TFIDFModel(SimilarityModel):
 		#Get similarity querying framework:
 		texts = [[word for word in sentence.split(' ') if word not in self.stoplist] for sentence in sentences]
 		corpus = [self.dictionary.doc2bow(text) for text in texts]
-		index = gensim.similarities.MatrixSimilarity(self.tfidf[corpus])
+		index = gensim.similarities.MatrixSimilarity(self.tfidf[corpus], num_features=len(self.dictionary))
 		
 		#Create similarity matrix:
 		sentence_similarities = []
@@ -145,7 +145,7 @@ class TFIDFModel(SimilarityModel):
 		corpus = [vec1, vec2]
 		
 		#Get similarity matrix from bag-of-words model:
-		index = gensim.similarities.MatrixSimilarity(self.tfidf[corpus])
+		index = gensim.similarities.MatrixSimilarity(self.tfidf[corpus], num_features=len(self.dictionary))
 		
 		#Return the similarity between the vectors:
 		sims = index[self.tfidf[vec1]]
