@@ -95,6 +95,8 @@ class TFIDFModel(SimilarityModel):
 				for sent1 in p1:
 					for sent2 in p2:
 						values.append(sentence_similarities[sentence_indexes[sent1]][sentence_indexes[sent2]])
+				if not values:
+					values = [0.0]
 				paragraph_similarities[i][j] = np.max(values)
 				
 		#Return similarity matrix:
